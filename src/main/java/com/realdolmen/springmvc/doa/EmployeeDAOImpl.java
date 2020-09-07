@@ -26,6 +26,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         vo2.setLastName("Kishore");
         employees.add(vo2);
 
+        EmployeeVO vo3 = new EmployeeVO();
+        vo3.setId(3);
+        vo3.setFirstName("Kevin");
+        vo3.setLastName("van der Kruk");
+        employees.add(vo3);
+
         return employees;
     }
 }
