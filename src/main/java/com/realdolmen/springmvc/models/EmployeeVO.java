@@ -2,7 +2,6 @@ package com.realdolmen.springmvc.models;
 
 import java.io.Serializable;
 
-package com.realdolmen.springmvc.models;
 
 public class EmployeeVO {
     private static final long serialVersionUID = 1L;

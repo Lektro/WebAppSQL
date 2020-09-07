@@ -1,4 +1,9 @@
 package com.realdolmen.springmvc.services;
 
-public class EmployeeManager {
+import com.realdolmen.springmvc.models.EmployeeVO;
+
+import java.util.List;
+
+public interface EmployeeManager {
+    public List<EmployeeVO> getAllEmployees();
 }
