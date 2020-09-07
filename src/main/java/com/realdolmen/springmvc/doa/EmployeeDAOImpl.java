@@ -3,12 +3,13 @@ package com.realdolmen.springmvc.doa;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.realdolmen.springmvc.models.EmployeeVO;
 import org.springframework.stereotype.Repository;
 
+import com.realdolmen.springmvc.models.EmployeeVO;
 
 @Repository
-public class EmployeeDOAImpl implements EmployeeDOA {
+public class EmployeeDAOImpl implements EmployeeDAO {
+
     public List<EmployeeVO> getAllEmployees()
     {
         List<EmployeeVO> employees = new ArrayList<EmployeeVO>();
