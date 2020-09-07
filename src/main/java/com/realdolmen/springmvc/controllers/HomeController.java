@@ -9,7 +9,7 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public ModelAndView homepage() {
 
         return new ModelAndView("index", new HashMap<>());

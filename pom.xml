@@ -40,6 +40,13 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>org.eclipse.jdt.core.compiler</groupId>
+			<artifactId>ecj</artifactId>
+			<version>4.6.1</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- Tag libs support for view layer -->
 
 		<dependency>
