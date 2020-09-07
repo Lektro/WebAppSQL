@@ -19,6 +19,6 @@ public class EmployeeController {
     public ModelAndView getAllEmployees(ModelMap model)
     {
         model.addAttribute("employees", manager.getAllEmployees());
-        return new ModelAndView("employeesListDisplay", model);
+        return new ModelAndView("employeeListDisplay", model);
     }
 }
