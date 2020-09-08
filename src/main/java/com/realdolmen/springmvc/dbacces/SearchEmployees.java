@@ -13,7 +13,6 @@ public class SearchEmployees {
         try {
             conn = DriverManager.getConnection(url, user, pass);
             {
-                System.out.println("Connection established!");
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs = st.executeQuery(sql);
 
@@ -29,6 +28,6 @@ public class SearchEmployees {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return conn;
+        } return searchAllEmployees();
     }
 }
