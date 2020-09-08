@@ -1,11 +1,13 @@
 package com.realdolmen.springmvc.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
-
+@Entity
 public class EmployeeVO {
     private static final long serialVersionUID = 1L;
-
+    @Id
     private Integer id;
     private String firstName;
     private String lastName;
