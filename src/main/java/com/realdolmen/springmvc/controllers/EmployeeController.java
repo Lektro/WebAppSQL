@@ -25,19 +25,4 @@ public class EmployeeController {
         return new ModelAndView("employeeListDisplay", model);
     }
 
-    @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody
-    String addNewUser
-            (@RequestParam String name
-            , @RequestParam String email) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
-        EmployeeVO n = new EmployeeVO();
-        n.setId(n.getId());
-        n.setFirstName(n.getFirstName());
-        n.setLastName(n.getLastName());
-        userRepository.save(n);
-        return "Saved";
-    }
 }

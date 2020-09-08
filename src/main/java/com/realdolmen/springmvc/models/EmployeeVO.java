@@ -1,13 +1,23 @@
 package com.realdolmen.springmvc.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.ToString;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
+@Getter
+@ToString
+@AllArgsConstructor
 public class EmployeeVO {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     private String firstName;
     private String lastName;
