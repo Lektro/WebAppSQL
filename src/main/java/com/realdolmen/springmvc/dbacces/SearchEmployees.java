@@ -1,11 +1,14 @@
 package com.realdolmen.springmvc.dbacces;
 
+import com.realdolmen.springmvc.models.EmployeeVO;
+
 import java.sql.*;
+import java.util.List;
 
 import static com.realdolmen.springmvc.dbacces.DataSource.*;
 
 public class SearchEmployees {
-    public static Connection searchAllEmployees() {
+    public List<EmployeeVO> getAllEmployees() {
 
         Connection conn = null;
         String sql = String.format("SELECT * FROM thezoo.employees;");
@@ -21,13 +24,13 @@ public class SearchEmployees {
                     int id = rs.getInt(1);
                     String firstName = rs.getString(2);
                     String lastName = rs.getString(3);
-                    System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
+                    // System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
                 }
-                return conn;
+                return (List<EmployeeVO>) conn;
             }
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return searchAllEmployees();
+        } return getAllEmployees();
     }
 }

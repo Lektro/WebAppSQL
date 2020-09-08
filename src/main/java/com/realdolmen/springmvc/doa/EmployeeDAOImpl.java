@@ -20,7 +20,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         try {
             conn = DriverManager.getConnection(url, user, pass);
             {
-                System.out.println("Connection established!");
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs = st.executeQuery(sql);
 
@@ -29,7 +28,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                     int id = rs.getInt(1);
                     String firstName = rs.getString(2);
                     String lastName = rs.getString(3);
-                    System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
                 }
                 return employees;
             }
@@ -37,7 +35,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
 
-            return employees;
+            return (List<EmployeeVO>) conn;
         }
     }
 }

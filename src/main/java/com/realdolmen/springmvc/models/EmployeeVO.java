@@ -38,9 +38,10 @@ public class EmployeeVO {
         this.lastName = lastName;
     }
 
+    // its not this string that gets called to terminal //
     @Override
     public String toString() {
-        return "EmployeeVO [id=" + id + ", firstName=" + firstName
+        return "EmployeeVO [id =" + id + ", firstName=" + firstName
                 + ", lastName=" + lastName + "]";
     }
 }

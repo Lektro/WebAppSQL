@@ -12,10 +12,10 @@
             <th>First Name</th>
             <th>Last Name</th>
         </tr>
-        <tr th:each="employee : ${employees}">
-            <td th:text="${{employee.id}}">ID</td>
-            <td th:text="${{employee.firstName}}">first name</td>
-            <td th:text="${{employee.lastName}}">last name</td>
+        <tr th:each="employees : ${employees}">
+            <td th:text="${{employees.id}}">ID</td>
+            <td th:text="${{employees.firstName}}">first name</td>
+            <td th:text="${{employees.lastName}}">last name</td>
         </tr>
     </table>
 <h1><a href="/">Go to Index</a></h1>

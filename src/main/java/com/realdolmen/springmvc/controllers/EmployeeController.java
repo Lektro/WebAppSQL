@@ -13,7 +13,7 @@ import com.realdolmen.springmvc.services.EmployeeManager;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
     @Autowired
     EmployeeManager manager;
