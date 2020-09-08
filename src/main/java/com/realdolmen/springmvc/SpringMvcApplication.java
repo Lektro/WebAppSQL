@@ -8,10 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringMvcApplication {
 
 	public static void main(String[] args) {
-		SearchEmployees.searchAllEmployees();
-
+		//SearchEmployees.searchAllEmployees();
 
 		SpringApplication.run(SpringMvcApplication.class, args);
 	}
-
 }

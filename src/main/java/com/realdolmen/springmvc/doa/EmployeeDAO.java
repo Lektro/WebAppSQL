@@ -1,8 +1,8 @@
 package com.realdolmen.springmvc.doa;
 
-import java.util.List;
-
 import com.realdolmen.springmvc.models.EmployeeVO;
+
+import java.util.List;
 
 public interface EmployeeDAO
 {

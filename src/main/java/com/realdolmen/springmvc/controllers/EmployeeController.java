@@ -19,7 +19,7 @@ public class EmployeeController {
     EmployeeManager manager;
 
     @RequestMapping(value = "/getAllEmployees", method = RequestMethod.GET)
-    public ModelAndView getAllEmployees(ModelMap model)
+    public ModelAndView searchEmployees(ModelMap model)
     {
         model.addAttribute("employees", manager.getAllEmployees());
         return new ModelAndView("employeeListDisplay", model);
