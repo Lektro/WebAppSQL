@@ -1,6 +1,6 @@
 package com.realdolmen.springmvc.models;
 
-public class EmployeeVO {
+public class Employee {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,10 +38,9 @@ public class EmployeeVO {
         this.lastName = lastName;
     }
 
-    // its not this string that gets called to terminal //
     @Override
     public String toString() {
-        return "EmployeeVO [id =" + id + ", firstName=" + firstName
+        return "Employee [id =" + id + ", firstName=" + firstName
                 + ", lastName=" + lastName + "]";
     }
 }
