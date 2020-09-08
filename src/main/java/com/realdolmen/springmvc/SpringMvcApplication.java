@@ -1,5 +1,6 @@
 package com.realdolmen.springmvc;
 
+import com.realdolmen.springmvc.dbacces.SearchEmployees;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringMvcApplication {
 
 	public static void main(String[] args) {
+		SearchEmployees.searchPosts();
+
 
 		SpringApplication.run(SpringMvcApplication.class, args);
 	}
