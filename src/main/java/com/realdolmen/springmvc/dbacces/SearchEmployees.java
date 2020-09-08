@@ -5,7 +5,7 @@ import java.sql.*;
 import static com.realdolmen.springmvc.dbacces.DataSource.*;
 
 public class SearchEmployees {
-    public static Connection searchPosts() {
+    public static Connection searchAllEmployees() {
 
         Connection conn = null;
         String sql = String.format("SELECT * FROM thezoo.employees;");
