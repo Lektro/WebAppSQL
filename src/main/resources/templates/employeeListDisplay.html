@@ -1,9 +1,12 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring MVC Hello World</title>
+    <link th:href = "@{/css/bootstrap.css}" rel="stylesheet">
+
 </head>
 
 <body>
+<div class="container">
     <h2>All Employees in System</h2>
 
     <table border="1">
@@ -19,5 +22,6 @@
         </tr>
     </table>
 <h1><a href="/">Go to Index</a></h1>
+</div>
 </body>
 </html>

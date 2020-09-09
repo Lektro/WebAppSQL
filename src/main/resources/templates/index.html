@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <script th:href="@{/js/bootstrap.js}" type="text/javascript"></script>
 </head>
+
 <body>
-<h1>Welcome to the Zoo</h1>
-<p><a href="/employees/getAllEmployees">List current Employees</a></h1></p>
+    <div th:insert="fragments/header :: navbar"></div>
+    <div class="container">
+        <h1>Welcome to the Zoo</h1>
+        <p><a href="/employees/getAllEmployees">List current Employees</a></h1></p>
+    </div>
 </body>
+
 </html>
