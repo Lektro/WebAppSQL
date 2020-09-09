@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.realdolmen.springmvc.dbacces.LoginDetails.*;
@@ -42,6 +43,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return getAllEmployees();
+        } return Collections.emptyList();
     }
-}
+    public void addEmployee(Employee employee) {
+        Connection conn = null;
+        String sql = "INSERT INTO `thezoo`.`employees` (`firstName`, `lastName`) VALUES ('?', '?');";
+
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+            {
+                System.out.println("Connection established!");
+                Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                st.executeUpdate(sql);
+            }
+
+        } catch (
+                SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    }
+
+
