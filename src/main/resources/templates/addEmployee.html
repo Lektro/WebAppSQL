@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Employees</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
 </head>
 <body>
+<div th:insert="fragments/header :: navbar"></div>
+<br>
 <form action="/employee/add" method="post">
-    <input type="text" id="id" name="firstName" >
-    <input type="submit" value="save">
+    <div class="form-group">
+        <input type="text" id="firstName" name="firstName" >
+        <input type="text" id="lastName" name="lastName" >
+        <input type="submit" value="save">
+    </div>
 </form>
 </body>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script th:src="@{/js/bootstrap.js}"></script>
 </html>

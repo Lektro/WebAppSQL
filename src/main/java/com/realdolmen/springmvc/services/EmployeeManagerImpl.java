@@ -18,4 +18,9 @@ public class EmployeeManagerImpl implements EmployeeManager {
     {
         return dao.getAllEmployees();
     }
+
+    @Override
+    public void addEmployee(Employee employee) {
+        dao.addEmployee(employee);
+    }
 }
