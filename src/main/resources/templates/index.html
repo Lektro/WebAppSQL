@@ -10,7 +10,25 @@
     <div th:insert="fragments/header :: navbar"></div>
     <br>
     <div class="container">
-        <h1>Welcome to the Zoo</h1>
+        <div class="card text-center">
+            <div class="card-header">Welcome to the Zoo</div>
+            <div class="card-body">
+                <h5 class="card-title">Employees</h5>
+                <p class="card-text">Here you can add or delete employees</p>
+                <a href="/employee/getAllEmployees" class="btn btn-dark">Show All Employees</a>
+            </div>
+        </div>
+        <br>
+        <div class="card text-center">
+            <div class="card-header">Welcome to the Zoo</div>
+            <div class="card-body">
+                <h5 class="card-title">Animals</h5>
+                <p class="card-text">Here you can add or delete animals</p>
+                <a href="/animals/getAllAnimals" class="btn btn-dark">Show All Animals</a>
+            </div>
+        </div>
+
+
         <p><a href="/employee/getAllEmployees">List current Employees</a></h1></p>
     </div>
 </body>
