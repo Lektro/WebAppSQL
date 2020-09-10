@@ -11,7 +11,6 @@ import java.util.List;
 public class AnimalServiceImpl implements AnimalService {
     @Autowired
     AnimalDAO animalDAO;
-
     public List<Animal> getAllAnimals()
     {
         return animalDAO.getAllAnimals();

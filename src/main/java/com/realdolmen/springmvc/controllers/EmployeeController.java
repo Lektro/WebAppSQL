@@ -32,6 +32,7 @@ public class EmployeeController {
         employeeService.addEmployee(employee);
         return new ModelAndView("redirect:/employee/getAllEmployees");
     }
+
     @GetMapping("/{id}/delete")
     public ModelAndView delete(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
         employeeService.deleteById(id);
