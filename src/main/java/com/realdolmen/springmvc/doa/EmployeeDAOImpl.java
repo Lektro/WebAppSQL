@@ -9,18 +9,16 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.realdolmen.springmvc.dbacces.LoginDetails.*;
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
-
     private List<Employee> employees = new ArrayList<Employee>();
-
     public List<Employee> getAllEmployees() {
         Connection conn = null;
         String sql = String.format("SELECT * FROM thezoo.employees;");
         try {
-            conn = DriverManager.getConnection(url, user, pass);
-            {
+            conn = DriverManager.getConnection(url, user, pass); {
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs = st.executeQuery(sql);
                 List<Employee> employeeList = new ArrayList<>();
@@ -35,37 +33,36 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                     employee.setId(id);
                     employee.setFirstName(firstName);
                     employee.setLastName(lastName);
-
                     employeeList.add(employee);
-                    System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
-                }
-                return employeeList;
+                    //System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
+                } return employeeList;
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
-        return Collections.emptyList();
+        } return Collections.emptyList();
     }
 
+    public int addEmployee(Employee employee) {
 
-    public void addEmployee(Employee employee) {
-        Connection conn = null;
-        String sql = "insert into employees( firstname, lastname) values ((SELECT LAST_INSERT_ID()),?,?)";
-        try (PreparedStatement preparedStatement = createConnection().prepareStatement(sql)) {
+        try (PreparedStatement preparedStatement = createConnection().prepareStatement("insert into employees(id, firstname, lastname) values ((SELECT LAST_INSERT_ID()),?,?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, employee.getFirstName());
             preparedStatement.setString(2, employee.getLastName());
-            preparedStatement.executeQuery();
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            return resultSet.getInt(1);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return 0;
     }
 
-    private Connection createConnection() throws SQLException {
-        try { Connection conn = DriverManager.getConnection(url, user, pass);
-
+    public Connection createConnection() throws SQLException {
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return createConnection();
+        } return conn;
     }
 }

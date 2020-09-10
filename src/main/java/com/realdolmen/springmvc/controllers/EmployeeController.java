@@ -16,12 +16,10 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @RequestMapping(value = "/getAllEmployees", method = RequestMethod.GET)
-    public ModelAndView searchEmployees(ModelMap model)
-    {
+    public ModelAndView searchEmployees(ModelMap model) {
         model.addAttribute("employees", employeeService.getAllEmployees());
         return new ModelAndView("employeeListDisplay", model);
     }
-
 
     @GetMapping("/add")
     public ModelAndView showAddView(ModelMap modelMap) {
@@ -30,8 +28,7 @@ public class EmployeeController {
 
     @PostMapping("/add")
     public ModelAndView addEmployee(@ModelAttribute Employee employee) {
-
+        employeeService.addEmployee(employee);
         return new ModelAndView("redirect:/employees/getAllEmployees");
     }
-
 }

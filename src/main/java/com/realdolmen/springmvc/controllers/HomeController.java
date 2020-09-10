@@ -11,7 +11,6 @@ public class HomeController {
 
     @GetMapping("/")
     public ModelAndView homepage() {
-
         return new ModelAndView("index", new HashMap<>());
     }
 }
