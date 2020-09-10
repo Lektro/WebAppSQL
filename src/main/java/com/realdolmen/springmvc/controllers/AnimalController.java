@@ -15,7 +15,7 @@ public class AnimalController {
     AnimalService animalService;
 
     @RequestMapping(value = "/getAllAnimals", method = RequestMethod.GET)
-    public ModelAndView searchEmployees(ModelMap model) {
+    public ModelAndView searchAnimals(ModelMap model) {
         model.addAttribute("animal", animalService.getAllAnimals());
         return new ModelAndView("animalListDisplay", model);
     }

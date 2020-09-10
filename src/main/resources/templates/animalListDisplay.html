@@ -13,7 +13,7 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Animal Id</th>
+            <th scope="col">Animal ID</th>
             <th scope="col">Animal Name</th>
             <th scope="col">Species</th>
             <th scope="col">Food Type</th>
@@ -21,13 +21,13 @@
         </thead>
         <tr th:each="animal : ${animals}">
             <td th:text="${{animal.id}}">ID</td>
-            <td th:text="${{animal.name}}">Name</td>
+            <td th:text="${{animal.animalName}}">Name</td>
             <td th:text="${{animal.species}}">Species</td>
             <td th:text="${{animal.foodType}}">Food Type</td>
-            <td>
+<!--            <td>
                 <a class="btn btn-secondary" type="button" th:href="@{/employee/{id}/edit(id=${employee.id})}">edit</a>
                 <a class="btn btn-warning" type="button" th:href="@{/employee/{id}/delete(id=${employee.id})}">delete</a>
-            </td>
+            </td>-->
         </tr>
     </table>
 </div>

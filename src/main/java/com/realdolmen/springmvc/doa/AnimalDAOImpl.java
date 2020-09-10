@@ -1,7 +1,6 @@
 package com.realdolmen.springmvc.doa;
 
 import com.realdolmen.springmvc.models.Animal;
-import com.realdolmen.springmvc.models.Employee;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -14,7 +13,6 @@ import static com.realdolmen.springmvc.dbacces.LoginDetails.*;
 @Repository
 public class AnimalDAOImpl implements AnimalDAO {
     private List<Animal> animals = new ArrayList<Animal>();
-
     public List<Animal> getAllAnimals() {
         Connection conn = null;
         String sql = String.format("SELECT * FROM thezoo.animals;");
@@ -29,7 +27,7 @@ public class AnimalDAOImpl implements AnimalDAO {
                     int id = rs.getInt(1);
                     String animalName = rs.getString(2);
                     String species = rs.getString(3);
-                    String foodType = rs.getString(3);
+                    String foodType = rs.getString(4);
 
                     Animal animal = new Animal();
                     animal.setId(id);
