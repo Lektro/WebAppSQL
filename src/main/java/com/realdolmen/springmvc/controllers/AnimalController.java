@@ -16,7 +16,7 @@ public class AnimalController {
 
     @RequestMapping(value = "/getAllAnimals", method = RequestMethod.GET)
     public ModelAndView searchAnimals(ModelMap model) {
-        model.addAttribute("animal", animalService.getAllAnimals());
+        model.addAttribute("animals", animalService.getAllAnimals());
         return new ModelAndView("animalListDisplay", model);
     }
 }

@@ -31,11 +31,11 @@ public class AnimalDAOImpl implements AnimalDAO {
 
                     Animal animal = new Animal();
                     animal.setId(id);
-                    animal.setName(animalName);
+                    animal.setAnimalName(animalName);
                     animal.setSpecies(species);
                     animal.setFoodType(foodType);
                     animalList.add(animal);
-                    //System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
+                    System.out.println(id  + animalName + species + foodType);
                 } return animalList;
             }
         } catch (SQLException throwables) {

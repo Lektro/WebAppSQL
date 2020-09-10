@@ -2,7 +2,7 @@ package com.realdolmen.springmvc.models;
 
 public class Animal {
     private Integer id;
-    private String name;
+    private String animalName;
     private String species;
     private String foodType;
 
@@ -16,12 +16,12 @@ public class Animal {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAnimalName() {
+        return animalName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAnimalName(String animalName) {
+        this.animalName = animalName;
     }
 
     public String getSpecies() {
@@ -43,7 +43,7 @@ public class Animal {
     public String toString() {
         return "Animal{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + animalName + '\'' +
                 ", species='" + species + '\'' +
                 ", foodType='" + foodType + '\'' +
                 '}';

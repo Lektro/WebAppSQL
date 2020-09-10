@@ -24,7 +24,9 @@
             <td th:text="${{employee.firstName}}">first name</td>
             <td th:text="${{employee.lastName}}">last name</td>
             <td>
+<!--
                 <a class="btn btn-secondary" type="button" th:href="@{/employee/{id}/edit(id=${employee.id})}">edit</a>
+-->
                 <a class="btn btn-warning" type="button" th:href="@{/employee/{id}/delete(id=${employee.id})}">delete</a>
             </td>
         </tr>
