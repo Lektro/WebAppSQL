@@ -1,18 +1,11 @@
 package com.realdolmen.springmvc.models;
 
 public class Employee {
-
-    private static final long serialVersionUID = 1L;
-
     private Integer id;
     private String firstName;
     private String lastName;
 
     //Setters and Getters
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getId() {
         return id;

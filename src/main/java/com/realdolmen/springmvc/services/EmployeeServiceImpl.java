@@ -12,21 +12,21 @@ import com.realdolmen.springmvc.doa.EmployeeDAO;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    EmployeeDAO dao;
+    EmployeeDAO employeeDAO;
 
     public List<Employee> getAllEmployees()
     {
-        return dao.getAllEmployees();
+        return employeeDAO.getAllEmployees();
     }
 
     @Override
     public void addEmployee(Employee employee) {
-        dao.addEmployee(employee);
+        employeeDAO.addEmployee(employee);
     }
 
     @Override
     public void deleteById(int id) {
-        dao.deleteById(id);
+        employeeDAO.deleteById(id);
     }
 
 }
