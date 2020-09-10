@@ -21,13 +21,16 @@ public class EmployeeController {
         model.addAttribute("employees", employeeService.getAllEmployees());
         return new ModelAndView("employeeListDisplay", model);
     }
+
+
     @GetMapping("/add")
     public ModelAndView showAddView(ModelMap modelMap) {
         return new ModelAndView("addEmployee", modelMap);
     }
+
     @PostMapping("/add")
-    public ModelAndView addEmployee(@ModelAttribute Employee employee, ModelMap modelMap) {
-        employeeService.addEmployee(employee);
-        return new ModelAndView("redirect:/employee/getAllEmployees");
+    public ModelAndView addEmployee(@ModelAttribute Employee employee) {
+        return new ModelAndView("redirect:/employees/getAllEmployees");
     }
+
 }
