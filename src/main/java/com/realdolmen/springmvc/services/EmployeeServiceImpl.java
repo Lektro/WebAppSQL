@@ -24,4 +24,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         dao.addEmployee(employee);
     }
 
+    @Override
+    public void deleteById(int id) {
+        dao.deleteById(id);
+    }
+
 }

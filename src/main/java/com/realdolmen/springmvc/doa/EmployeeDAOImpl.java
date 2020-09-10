@@ -57,6 +57,15 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return 0;
     }
 
+    @Override
+    public void deleteById(int id) {
+        try (PreparedStatement preparedStatement = createConnection().prepareStatement("delete from employees where id = ? ")) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
     public Connection createConnection() throws SQLException {
         Connection conn = null;
         try {
