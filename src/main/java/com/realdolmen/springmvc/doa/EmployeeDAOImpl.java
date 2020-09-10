@@ -9,7 +9,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.realdolmen.springmvc.dbacces.LoginDetails.*;
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -56,6 +55,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         }
         return 0;
     }
+
+    @Override
+    public void update(Employee employee) {
+        try (PreparedStatement preparedStatement = createConnection().prepareStatement("UPDATE `thezoo`.`employees` SET firstName= ? , lastName=? where id = ? ")) {
+            preparedStatement.setInt(1, employee.getId());
+            preparedStatement.setString(2, employee.getFirstName());
+            preparedStatement.setString(3, employee.getLastName());
+
+            preparedStatement.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
 
     @Override
     public void deleteById(int id) {

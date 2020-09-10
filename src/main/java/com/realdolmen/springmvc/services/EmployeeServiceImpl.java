@@ -29,4 +29,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeDAO.deleteById(id);
     }
 
+    @Override
+    public Employee findById(int id) {
+        return null;
+    }
+
+    @Override
+    public void update(Employee employee) {
+
+    }
+
 }

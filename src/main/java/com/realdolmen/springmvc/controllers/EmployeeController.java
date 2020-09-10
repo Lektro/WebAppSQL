@@ -43,4 +43,15 @@ public class EmployeeController {
          */
         return new ModelAndView("redirect:/employee/getAllEmployees");
     }
+    @GetMapping("/{id}/edit") // <---- Creates url in the form of localhost:port/employee/{id}/edit
+    public ModelAndView showEditPage(@PathVariable("id") int id, ModelMap modelMap) {
+        modelMap.addAttribute("employee", employeeService.findById(id));
+        return new ModelAndView("editEmployee", modelMap);
+
+    }
+    @PostMapping("/edit")
+    public ModelAndView save(@ModelAttribute Employee employee) {
+        employeeService.update(employee);
+        return new ModelAndView("redirect:/employee/getAllEmployees");
+    }
 }
