@@ -59,15 +59,35 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public void update(Employee employee) {
         try (PreparedStatement preparedStatement = createConnection().prepareStatement("UPDATE `thezoo`.`employees` SET firstName= ? , lastName=? where id = ? ")) {
-            preparedStatement.setInt(1, employee.getId());
-            preparedStatement.setString(2, employee.getFirstName());
-            preparedStatement.setString(3, employee.getLastName());
+            preparedStatement.setString(1, employee.getFirstName());
+            preparedStatement.setString(2, employee.getLastName());
+            preparedStatement.setInt(3, employee.getId());
 
             preparedStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
+    }
+
+    @Override
+    public Employee findById(int id) {
+        try (PreparedStatement preparedStatement = createConnection().prepareStatement("select * from employees where id = ? ")) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+            resultSet.next();
+
+            Employee employee = new Employee();
+            employee.setId(resultSet.getInt("id"));
+            employee.setFirstName(resultSet.getString("firstname"));
+            employee.setLastName(resultSet.getString("lastname"));
+
+            return employee;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return null;
     }
 
 

@@ -5,8 +5,9 @@ import com.realdolmen.springmvc.models.Employee;
 import java.util.List;
 
 public interface EmployeeDAO {
-    public List<Employee> getAllEmployees();
-    public int addEmployee(Employee employee);
+    List<Employee> getAllEmployees();
+    int addEmployee(Employee employee);
     void deleteById(int id);
     void update(Employee employee);
+    Employee findById(int id);
 }

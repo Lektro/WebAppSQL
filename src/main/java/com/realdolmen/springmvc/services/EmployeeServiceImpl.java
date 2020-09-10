@@ -14,8 +14,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EmployeeDAO employeeDAO;
 
-    public List<Employee> getAllEmployees()
-    {
+    public List<Employee> getAllEmployees() {
         return employeeDAO.getAllEmployees();
     }
 
@@ -31,12 +30,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee findById(int id) {
-        return null;
+        return employeeDAO.findById(id);
     }
 
     @Override
     public void update(Employee employee) {
-
+        employeeDAO.update(employee);
     }
 
 }
