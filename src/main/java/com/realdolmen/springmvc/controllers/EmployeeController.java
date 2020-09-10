@@ -6,14 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.realdolmen.springmvc.services.EmployeeManager;
+import com.realdolmen.springmvc.services.EmployeeService;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
     @Autowired
-    EmployeeManager employeeService;
+    EmployeeService employeeService;
 
     @RequestMapping(value = "/getAllEmployees", method = RequestMethod.GET)
     public ModelAndView searchEmployees(ModelMap model)
@@ -30,6 +30,7 @@ public class EmployeeController {
 
     @PostMapping("/add")
     public ModelAndView addEmployee(@ModelAttribute Employee employee) {
+
         return new ModelAndView("redirect:/employees/getAllEmployees");
     }
 

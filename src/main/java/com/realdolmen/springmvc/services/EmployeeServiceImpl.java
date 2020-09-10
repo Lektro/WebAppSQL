@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.realdolmen.springmvc.doa.EmployeeDAO;
 
 @Service
-public class EmployeeManagerImpl implements EmployeeManager {
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeDAO dao;
