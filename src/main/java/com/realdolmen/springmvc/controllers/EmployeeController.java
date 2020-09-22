@@ -36,11 +36,6 @@ public class EmployeeController {
     @GetMapping("/{id}/delete")
     public ModelAndView delete(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
         employeeService.deleteById(id);
-        redirectAttributes.addFlashAttribute("success", true); // this is used to show the toast or the alert bar in our page
-        /**
-         * if you don't want to send the view but just want the browser redirect to another url.
-         * you can
-         */
         return new ModelAndView("redirect:/employee/getAllEmployees");
     }
     @GetMapping("/{id}/edit") // <---- Creates url in the form of localhost:port/employee/{id}/edit
