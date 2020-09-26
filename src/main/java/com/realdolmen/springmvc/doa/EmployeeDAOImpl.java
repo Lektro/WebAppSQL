@@ -13,6 +13,26 @@ import static com.realdolmen.springmvc.dbacces.LoginDetails.*;
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
     private List<Employee> employees = new ArrayList<Employee>();
+
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+
+    public Connection createConnection() throws SQLException {
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, user, pass);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } return conn;
+    }
+
     public List<Employee> getAllEmployees() {
         Connection conn = null;
         String sql = String.format("SELECT * FROM thezoo.employees;");
@@ -20,25 +40,26 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             conn = DriverManager.getConnection(url, user, pass); {
                 Statement st = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs = st.executeQuery(sql);
-                List<Employee> employeeList = new ArrayList<>();
+                List<Employee> employees = new ArrayList<>();
 
                 /** While there are matches found print out the result */
                 while (rs.next()) {
+                    Employee employee = new Employee();
                     int id = rs.getInt(1);
                     String firstName = rs.getString(2);
                     String lastName = rs.getString(3);
 
-                    Employee employee = new Employee();
-                    employee.setId(id);
-                    employee.setFirstName(firstName);
-                    employee.setLastName(lastName);
-                    employeeList.add(employee);
+                    employee.setId(rs.getInt("id"));
+                    employee.setFirstName(rs.getString("firstName"));
+                    employee.setLastName(rs.getString("lastName"));
+                    employees.add(employee);
                     //System.out.format("%s %s %s %n", "Employee ID: " + id, "First Name: " + firstName, " Last Name: " + lastName);
-                } return employeeList;
+                } return employees;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } return Collections.emptyList();
+        }
+        return Collections.emptyList();
     }
 
     public int addEmployee(Employee employee) {
@@ -58,16 +79,16 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void update(Employee employee) {
-        try (PreparedStatement preparedStatement = createConnection().prepareStatement("UPDATE `thezoo`.`employees` SET firstName= ? , lastName=? where id = ? ")) {
-            preparedStatement.setString(1, employee.getFirstName());
-            preparedStatement.setString(2, employee.getLastName());
-            preparedStatement.setInt(3, employee.getId());
+
+        try (PreparedStatement preparedStatement = createConnection().prepareStatement("UPDATE `thezoo`.`employees` SET firstName= ? , lastName=? where id= ? ")) {
+            preparedStatement.setInt(1, employee.getId());
+            preparedStatement.setString(2, employee.getFirstName());
+            preparedStatement.setString(3, employee.getLastName());
 
             preparedStatement.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
     @Override
@@ -100,12 +121,5 @@ public class EmployeeDAOImpl implements EmployeeDAO {
             throwables.printStackTrace();
         }
     }
-    public Connection createConnection() throws SQLException {
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url, user, pass);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } return conn;
-    }
+
 }

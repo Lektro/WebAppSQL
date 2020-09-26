@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/animal")
 public class AnimalController {
+
     @Autowired
     AnimalService animalService;
 

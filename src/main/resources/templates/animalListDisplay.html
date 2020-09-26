@@ -17,6 +17,7 @@
             <th scope="col">Animal Name</th>
             <th scope="col">Species</th>
             <th scope="col">Food Type</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tr th:each="animal : ${animals}">
@@ -24,17 +25,17 @@
             <td th:text="${{animal.animalName}}">Name</td>
             <td th:text="${{animal.species}}">Species</td>
             <td th:text="${{animal.foodType}}">Food Type</td>
-<!--            <td>
-                <a class="btn btn-secondary" type="button" th:href="@{/employee/{id}/edit(id=${employee.id})}">edit</a>
-                <a class="btn btn-warning" type="button" th:href="@{/employee/{id}/delete(id=${employee.id})}">delete</a>
-            </td>-->
+            <td>
+                <a class="btn btn-secondary" type="button" th:href="@{/animal/{id}/edit(id=${animal.id})}">edit</a>
+                <a class="btn btn-warning" type="button" th:href="@{/animal/{id}/delete(id=${animal.id})}">delete</a>
+            </td>
         </tr>
     </table>
 </div>
 <br>
 <div class="container">
     <div class="row">
-            <a class="btn btn-dark" href="/animal/add" role="button">Add Animal</a>
+            <a class="btn btn-dark" href="/animal/addAnimal" role="button">Add Animal</a>
     </div>
     <br>
     <div class="row">
