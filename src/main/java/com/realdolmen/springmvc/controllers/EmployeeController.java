@@ -2,7 +2,6 @@ package com.realdolmen.springmvc.controllers;
 
 import com.realdolmen.springmvc.models.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -36,21 +35,20 @@ public class EmployeeController {
         return new ModelAndView("redirect:/employee/getAllEmployees");
     }
 
-    @GetMapping("/{id}/edit") // <---- Creates url in the form of localhost:port/employee/{id}/edit
+    @RequestMapping("/{id}/edit") // <---- Creates url in the form of localhost:port/employee/{id}/edit
     public ModelAndView showEditPage(@PathVariable("id") int id, ModelMap modelMap) {
         modelMap.addAttribute("employee", employeeService.findById(id));
         return new ModelAndView("editEmployee", modelMap);
-
     }
 
-    @PostMapping("/edit")
-    public ModelAndView save(@ModelAttribute Employee employee) {
+    @PostMapping("/{id}/edit")
+    public ModelAndView save(@ModelAttribute("employee") Employee employee) {
         employeeService.update(employee);
         return new ModelAndView("redirect:/employee/getAllEmployees");
     }
 
     @PostMapping("/add")
-    public ModelAndView addEmployee(@ModelAttribute Employee employee) {
+    public ModelAndView addEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.addEmployee(employee);
         return new ModelAndView("redirect:/employee/getAllEmployees");
     }

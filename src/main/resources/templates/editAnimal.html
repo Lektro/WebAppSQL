@@ -12,11 +12,13 @@
     <h2>Edit details of employee</h2>
 </div>
 <div class="container">
-    <form th:action="@{/animal/edit}" method="post">
+    <form th:action="@{/animal/{id}/edit(id=${animal.id})}" method="post">
         <div class="form-group">
-            <input th:value="${employee.firstName}" class="form-control" type="text"  id="firstName" placeholder="First Name" name="firstName">
+            <input th:value="${animal.animalName}" class="form-control" type="text"  id="animalName" placeholder="Animal Name" name="animalName">
             <br>
-            <input th:value="${employee.lastName}"class="form-control" type="text" id="lastName" placeholder="Last Name" name="lastName">
+            <input th:value="${animal.species}"class="form-control" type="text" id="species" placeholder="Species" name="species">
+            <br>
+            <input th:value="${animal.foodType}"class="form-control" type="text" id="foodType" placeholder="Food Tye" name="foodType">
             <br>
             <input class="btn btn-dark" type="submit" value="save">
         </div>

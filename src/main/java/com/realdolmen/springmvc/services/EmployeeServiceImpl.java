@@ -37,5 +37,4 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void update(Employee employee) {
         employeeDAO.update(employee);
     }
-
 }

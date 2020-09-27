@@ -12,7 +12,7 @@
     <h2>Edit details of employee</h2>
 </div>
 <div class="container">
-    <form th:action="@{/employee/edit}" method="post">
+    <form th:action="@{/employee/{id}/edit(id=${employee.id})}" method="post">
         <div class="form-group">
             <input th:value="${employee.firstName}" class="form-control" type="text"  id="firstName" placeholder="First Name" name="firstName">
             <br>

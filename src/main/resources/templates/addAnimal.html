@@ -9,14 +9,16 @@
 <div th:insert="fragments/header :: navbar"></div>
 <br>
 <div class="container">
-    <h2>Enter the details of new employee below</h2>
+    <h2>Enter the details of new animal below</h2>
 </div>
 <div class="container">
-    <form action="/employee/add" method="post">
+    <form action="/animal/add" method="post">
         <div class="form-group">
-            <input class="form-control" type="text"  id="firstName" placeholder="First Name" name="firstName">
+            <input class="form-control" type="text"  id="animalName" placeholder="Animal Name" name="animalName">
             <br>
-            <input class="form-control" type="text" id="lastName" placeholder="Last Name" name="lastName">
+            <input class="form-control" type="text" id="species" placeholder="Species" name="species">
+            <br>
+            <input class="form-control" type="text" id="foodType" placeholder="Food Type" name="foodType">
             <br>
             <input class="btn btn-dark" type="submit" value="save">
         </div>

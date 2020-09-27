@@ -1,18 +1,18 @@
 package com.realdolmen.springmvc.models;
 
 public class Animal {
-    private Integer id;
+    private int id;
     private String animalName;
     private String species;
     private String foodType;
 
     //Setters and Getters
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

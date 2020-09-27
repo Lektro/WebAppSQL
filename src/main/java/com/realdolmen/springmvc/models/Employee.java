@@ -2,18 +2,17 @@ package com.realdolmen.springmvc.models;
 
 public class Employee {
     private static final long serialVersionUID = 1L;
-
-    private Integer id;
+    private int id;
     private String firstName;
     private String lastName;
 
     //Setters and Getters
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -33,6 +32,9 @@ public class Employee {
         this.lastName = lastName;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
     @Override
     public String toString() {
         return "Employee [id =" + id + ", firstName=" + firstName
